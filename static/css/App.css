@@ -1,0 +1,8 @@
+
+@import '//at.alicdn.com/t/font_1350460_0a6p5msu771l.css';
+#app {
+    width: 100%;
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
