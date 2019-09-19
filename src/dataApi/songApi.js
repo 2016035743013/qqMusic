@@ -7,17 +7,17 @@ function getSingerPlayList(songId) {
         data: {
             id: songId
         },
-        url: '/song/artist'
+        url: '/artists'
     }
     return http.get(option);
 }
 function searchSingerByKeyword(keyword, pageNum) {
     let option = {
         data: {
-            type: 'singer',
-            keyword: keyword,
-            pageSize: 20,
-            page: pageNum - 1
+            type: 100,
+            keywords: keyword,
+            limit: 20,
+            offset: pageNum - 1
         },
         url: '/search'
     }
@@ -25,12 +25,19 @@ function searchSingerByKeyword(keyword, pageNum) {
 }
 function getLyric(id) {
     let option = {
-        url: `/lrc?id=${id}`
+        url: `/lyric?id=${id}`
+    };
+    return http.get(option);
+}
+function getPlayUrl(id) {
+    let option = {
+        url: `/song/url?id=${id}`
     };
     return http.get(option);
 }
 export {
     getSingerPlayList,
     getLyric,
+    getPlayUrl,
     searchSingerByKeyword
 }

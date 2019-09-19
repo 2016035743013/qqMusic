@@ -25,13 +25,32 @@
     </div>
     <div class="right-btns">
       <div class="play-methods">
-        <i class="iconfont icon-xunhuan" @click="changeMethod(1)" v-if="methods == 0"></i>
-        <i class="iconfont icon-danquxunhuan1" @click="changeMethod(2)" v-else-if="methods == 1"></i>
-        <i class="iconfont icon-suiji" @click="changeMethod(0)" v-else></i>
+        <el-tooltip
+          v-if="methods == 0"
+          class="item"
+          effect="dark"
+          content="顺序播放"
+          placement="top"
+        >
+          <i class="iconfont icon-xunhuan" @click="changeMethod(1)"></i>
+        </el-tooltip>
+
+        <el-tooltip
+          v-else-if="methods == 1"
+          class="item"
+          effect="dark"
+          content="单曲循环"
+          placement="top"
+        >
+          <i class="iconfont icon-danquxunhuan1" @click="changeMethod(2)"></i>
+        </el-tooltip>
+        <el-tooltip v-else class="item" effect="dark" content="随机播放" placement="top">
+          <i class="iconfont icon-suiji" @click="changeMethod(0)"></i>
+        </el-tooltip>
       </div>
       <!-- <div class="downLoad">
         <i class="iconfont icon-xiazai"></i>
-      </div> -->
+      </div>-->
       <div class="music-volume">
         <Volume />
       </div>
@@ -135,7 +154,7 @@ export default {
       this.$store.commit("setSongInfo", this.$store.state.playList[index]);
       this.$store.commit("setSongId", this.$store.state.playList[index].id);
       this.$store.commit("setBtnIndex", 0);
-      this.$store.commit('audioPlay');
+      this.$store.commit("audioPlay");
     },
     // 改变播放方式
     changeMethod(val) {

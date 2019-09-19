@@ -9,7 +9,7 @@ import {router} from './router/index'
 import scrollBar from 'cjhcj-scroll'
 import cjhcjAudio from 'cjhcj-audio'
 import vueScroll from 'vuescroll'
-import {Checkbox, CheckboxGroup, MessageBox, Message, Input, Button, Loading, Pagination } from 'element-ui'
+import {Checkbox, CheckboxGroup, MessageBox, Message, Input, Button, Loading, Pagination,Tooltip } from 'element-ui'
 Vue.prototype.$msgbox = MessageBox;
 Vue.prototype.$alert = MessageBox.alert;
 Vue.prototype.$confirm = MessageBox.confirm;
@@ -21,6 +21,7 @@ Vue.component(Checkbox.name, Checkbox);
 Vue.component(CheckboxGroup.name, CheckboxGroup);
 Vue.component(Button.name, Button);
 Vue.component(Pagination.name, Pagination);
+Vue.component(Tooltip.name, Tooltip);
 Vue.component('cjhcjAudio', cjhcjAudio);
 Vue.component('vueScroll', vueScroll)
 import './common/rem.js'

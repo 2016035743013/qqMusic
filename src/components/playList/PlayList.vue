@@ -38,7 +38,6 @@
               <i class="iconfont icon-bofang1" @click="playOrStop(index, item.id)"></i>
             </div>
           </span>
-          <!-- <span>{{item.ar[0].name}}</span> -->
           <span>
             {{item.ar[0].name}}
             <span v-if="item.ar.length > 1">/ {{item.ar[1].name}}</span>
@@ -103,7 +102,8 @@ export default {
       this.$store.commit("setSongInfo", "");
       this.$store.commit("setSongId", "");
       getSingerPlayList(songId).then(res => {
-        let songList = res.data;
+        console.log(res);
+        let songList = res.hotSongs;
         if (songList.length <= 0) {
           this.$alert("无歌曲播放？", "提示", {
             type: "warning",

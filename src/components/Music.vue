@@ -14,7 +14,7 @@ import Player from "./player/Player";
 import PlayList from "./playList/PlayList";
 import SongInfo from "./songInfo/SongInfo";
 import Vue from 'vue'
-import { getMusicUrl, getLyric } from "../dataApi/songApi";
+import { getMusicUrl, getPlayUrl, getLyric } from "../dataApi/songApi";
 import config from "../tool/config";
 export default {
   name: "music",
@@ -39,9 +39,11 @@ export default {
         return;
       }
       this.loading = true;
-      this.musicSrc = `${config.baseUrl}/url?id=${val}&quality=128`;
+      getPlayUrl(val).then(res => {
+        this.musicSrc = res.data[0].url;
+      })
       getLyric(val).then(res => {
-        this.lyric = res.split("\n");
+        this.lyric = res.lrc.lyric.split("\n");
       });
     },
     songInfo(val, oldVal) {

@@ -8,9 +8,9 @@ function ajax(option, another) {
             type: option.type,
             data: option.data,
             async: option.async,
-            headers: {
-                contentType: 'application/x-www-form-urlencoded'
-            },
+            // headers: {
+            //     contentType: 'application/x-www-form-urlencoded'
+            // },
             success: (res) => {
                 resolve(res);
             },

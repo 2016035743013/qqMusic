@@ -70,8 +70,10 @@ export default {
       this.loadingInstance = Loading.service({ fullscreen: true, text: '拼命加载中' });
       this.searchData = [];
       searchSingerByKeyword(this.singerName, pageNum).then(res => {
-        let data = res.data.artists;
-        let count = res.data.artistCount;
+        console.log(res);
+        let data = res.result.artists;
+        
+        let count = res.result.artistCount;
         this.searchCount = count;
         if (count <= 0) {
           this.$alert("您所搜索的歌手不存在，请换个搜索词！！！", "提示", {
